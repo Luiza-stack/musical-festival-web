@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
   <title>Music Festival</title>
 </head>
 <body>
@@ -11,7 +13,7 @@
         <div>
           <img src="/images/logo.jpg" alt="Music Festival Logo" width="100" height="100">
         </div>
-        <h1 style="margin-left: 10px; color: red;"><i>Music Festival</i></h1>
+        <h1 style="margin-left: 10px; font-family: 'Georgia', serif; color:  red;"><i>Music Festival</i></h1>
         <nav style="margin-top: 15px; margin-left: auto;">
           <ul>
             <li><a href="/"><i>Home</i></a></li>
@@ -26,54 +28,82 @@
       
 
 <!-- index.ejs -->
- <h2 style="text-align: center;">Welcome to the Music Festival</h2>
- <p class="moving-text">Experience the magic of live music and unforgettable performances!</p>
+<h1 style="text-align: center; color: #f50c0c; font-family: 'Georgia', serif; margin-top: 10px; text-shadow: 2px 2px 4px #333;">
+    Welcome to the Music Festival</h1>
+
+ <p style="font-family: 'Georgia', serif; color: #f50c0c;" class="moving-text"><i><b>This event will take place on the 20th of January!</b></i></p>
 <br>
 <main>
     <div class="hero-section">
-        <img src="/images/banner.png" alt="Music Festival" width="800px" height="300px">
+        <img class="rounded-image" src="/images/banner3.png" alt="Music Festival" width="800px" height="300px">
     </div>
     
     
   
     <section class="feature-section">
       <div class="feature">
-        <img src="https://via.placeholder.com/600x400" alt="Lineup">
+        <img  src="/images/lineup.jpeg" alt="Lineup">
         <h2>Check out our amazing lineup!</h2>
         <p>Discover talented artists and bands ready to rock the stage.</p>
         <a href="/lineup">Explore Lineup</a>
       </div>
   
       <div class="feature">
-        <img src="https://via.placeholder.com/600x400" alt="Stages">
+        <img src="/images/stage1.jpeg" alt="Stages" height="225px">
         <h2>Explore our festival stages!</h2>
         <p>Immerse yourself in unique performances at various stages.</p>
         <a href="/stages">Discover Stages</a>
       </div>
     </section>
   
-    <section class="faq-section">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq">
-        <h3>When is the event?</h3>
+ <!-- FAQ Page -->
+<section class="faq-section">
+    <h1 style="margin-left: 10px; font-family: 'Georgia', serif; color:  red;"><i>Frequently Asked Questions</i></h1>
+  
+    <div class="faq" onclick="toggleAnswer('event-date')">
+      <h4>When is the event? <span class="toggle-icon">▼</span></h4>
+      <div id="event-date" class="answer">
         <p>The event is scheduled to take place on the 20th of January.</p>
       </div>
-      <div class="faq">
-        <h3>Can I buy tickets on this website?</h3>
+    </div>
+  
+    <div class="faq" onclick="toggleAnswer('buy-tickets')">
+      <h4>Can I buy tickets on this website? <span class="toggle-icon">▼</span></h4>
+      <div id="buy-tickets" class="answer">
         <p>No, this website is for promotional purposes only. Please use the provided links to purchase tickets through the official ticketing platform.</p>
       </div>
-      <div class="faq">
-        <h3>How can I get more information about the lineup?</h3>
+    </div>
+  
+    <div class="faq" onclick="toggleAnswer('lineup-info')">
+      <h4>How can I get more information about the lineup? <span class="toggle-icon">▼</span></h4>
+      <div id="lineup-info" class="answer">
         <p>You can find information about the lineup on the Lineup page.</p>
       </div>
-    </section>
+    </div>
+  </section>
   </main>
     
 
   <footer>
+    <div class="social-icons">
+        <a href="#" target="_blank" class="icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" target="_blank" class="icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank" class="icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank" class="icon"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" target="_blank" class="icon"><i class="fab fa-youtube"></i></a>
+    </div>
     <p>&copy; 2023 Music Festival</p>
-  </footer>
+</footer>
 
-  <!-- Include any scripts you need -->
+
+
 </body>
+<script>
+    function toggleAnswer(id) {
+      const answer = document.getElementById(id);
+      answer.classList.toggle('visible');
+    }
+  </script>
 </html>
+
+

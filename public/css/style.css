@@ -5,15 +5,19 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    font-family: 'Georgia',serif;
   }
   
-/* Add these styles to position the logo at the left corner */
-header {
+  header {
     display: flex;
     align-items: center;
     background-color: black;
     padding: 1em;
+    width: 100%; 
+    box-sizing: border-box; 
 }
+
 
 header div {
     margin-right: 10px;
@@ -49,7 +53,7 @@ header div {
 
 nav a:hover {
     text-decoration: none;
-    color: red; /* Change color on hover */
+    color: red; 
 }
   
   main {
@@ -61,7 +65,7 @@ nav a:hover {
   }
   
   footer {
-    background-color: #333;
+    background-color: #050505;
     color: white;
     text-align: center;
     padding: 1em 0;
@@ -94,11 +98,14 @@ nav a:hover {
 .hero-section {
     position: relative;
     margin-top: 50px;
-  }
+    max-width: 100%; 
+    overflow: hidden; /* Hide any content that exceeds the max-width */
+    box-sizing: border-box; /* Include padding and border in the width */
+}
   
-  .hero-text {
+.hero-text {
     position: absolute;
-    top: 0; /* Change the value from 20% to 0 */
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -107,34 +114,38 @@ nav a:hover {
 
 
   
-  .hero-text h2 {
+.hero-text h2 {
     font-size: 2em;
     margin-top: 0;
-    text-align: center; /* Add this line to center the text */
+    text-align: center;
 }
 
 
-  .moving-text {
+.moving-text {
     position: absolute;
- 
-    right: 0;
-    animation: moveText 12s linear infinite;
+  
+    left: 0; /* Set the initial left position to 0 */
+    white-space: nowrap; /* Prevent line breaks in the moving text */
+    animation: moveText 18s linear infinite;
 }
 
-/* Add this corrected keyframe animation to your existing CSS file */
 @keyframes moveText {
     0% {
-        left: 100%;
+        left: 100%; /* Start from the right */
     }
     100% {
-        left: 0;
+        left: -100%; /* Move to the left, hiding the text */
     }
 }
 
-  
-  .hero-text p {
+.rounded-image {
+    border-radius: 1%;
+}
+
+.hero-text p {
     font-size: 1.2em;
-  }
+}
+
   
   /* Style the feature section */
   .feature-section {
@@ -148,9 +159,13 @@ nav a:hover {
   }
   
   .feature img {
-    width: 100%;
+    max-width: 100%;
+    height: 225px; 
+    width: 390px;
     border-radius: 10px;
   }
+  
+  
   
   .feature h2 {
     margin: 15px 0;
@@ -158,16 +173,24 @@ nav a:hover {
   
   .feature p {
     color: #555;
+    margin-bottom: 15px;
   }
   
   .feature a {
-    display: inline-block;
-    margin-top: 10px;
+    display: block;
+    margin-top: 15px;
     padding: 10px 20px;
-    background-color: #333;
+    background-color: #fa0a0a;
     color: white;
     text-decoration: none;
     border-radius: 5px;
+  }
+
+  /* Media query for smaller screens */
+@media (max-width: 768px) {
+    .feature a {
+      margin-top: 10px; /* Adjust the margin for smaller screens */
+    }
   }
   
   .feature a:hover {
@@ -191,6 +214,141 @@ nav a:hover {
   .faq p {
     color: #555;
   }
+
   
-  /* ... (footer styles) ... */
+.answer {
+    display: none;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+  }
+  
+  .visible {
+    display: block;
+  }
+
+  .toggle-icon {
+    float: right;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .open .toggle-icon {
+    transform: rotate(180deg);
+  }
+
+ 
+.toggle-icon, .faq h3 {
+    cursor: pointer;
+  }
+
+  #lineupContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style: none; /* Remove bullets */
+    padding: 0;
+  }
+
+  .artist-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 100px;
+    text-align: center;
+    width: 45%; 
+    margin: 0 0 20px 0;
+    box-sizing: border-box; 
+  }
+
+
+  /* Add styles for FAQ page */
+h1 {
+    text-align: center;
+    color: #f50c0c;
+    font-family: 'Georgia', serif;
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px #333;
+  }
+  
+  .faq-section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .faq-section p {
+    line-height: 1.6;
+  }
+  
+  .faq-section strong {
+    color: #f50c0c;
+  }
+  
+  .faq-section a {
+    color: #f50c0c;
+    text-decoration: underline;
+  }
+  
+  form {
+    display: grid;
+    gap: 15px;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: #e92222;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    
+  }
+
+  button:hover {
+    background-color: #fd0303;
+  }
+
+
+  button {
+    background-color: #f50c0c; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  button:hover {
+    background-color: #8c0000; 
+  }
+
+  #interactiveResult {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2em;
+  }
+  
+
+
+
+  
+  
+  
   
