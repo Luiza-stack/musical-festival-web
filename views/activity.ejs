@@ -1,0 +1,15 @@
+<h2>Activity</h2>
+<button id="interactiveBtn">Click Me!</button>
+<div id="interactiveResult"></div>
+
+<script>
+  document.getElementById('interactiveBtn').addEventListener('click', function() {
+    // Use AJAX for an interactive feature
+    fetch('/api/interactiveFeature')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('interactiveResult').innerHTML = data;
+      })
+      .catch(error => console.error('Error fetching interactive feature data:', error));
+  });
+</script>

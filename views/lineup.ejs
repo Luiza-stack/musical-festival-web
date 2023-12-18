@@ -1,0 +1,19 @@
+<h2>Lineup</h2>
+<div id="lineupContent">
+  <!-- Lineup content will be loaded dynamically here -->
+</div>
+
+<script>
+  // Use AJAX to fetch lineup data
+  fetch('/api/lineup')
+    .then(response => response.json())
+    .then(data => {
+      const lineupContent = document.getElementById('lineupContent');
+      lineupContent.innerHTML = '<ul>';
+      data.forEach(artist => {
+        lineupContent.innerHTML += `<li>${artist.artist}</li>`;
+      });
+      lineupContent.innerHTML += '</ul>';
+    })
+    .catch(error => console.error('Error fetching lineup data:', error));
+</script>
