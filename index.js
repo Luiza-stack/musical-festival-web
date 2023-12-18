@@ -8,45 +8,47 @@ app.set('view engine', 'ejs');
 
 // Routes
 app.get('/', (req, res) => {
-  // Assuming you have some dynamic content for the home page
-  const dynamicContent = "Welcome to the Music Festival!";
-  res.render('index', { content: dynamicContent });
-});
+    const dynamicContent = "Welcome to the Music Festival!";
+    res.render('index', { content: dynamicContent });
+  });
+  
+  app.get('/lineup', (req, res) => {
+    res.render('lineup');
+  });
+  
+  app.get('/stages', (req, res) => {
+    res.render('stages');
+  });
+  
+  app.get('/faq', (req, res) => {
+    res.render('faq');
+  });
+  
+  app.get('/contact', (req, res) => {
+    res.render('contact');
+  });
+  
+  app.get('/activity', (req, res) => {
+    res.render('activity');
+  });
+  
+  app.use(express.static('public'));
 
-// Route for Lineup page
-app.get('/lineup', (req, res) => {
-  // Assuming you have some dynamic content for the Lineup page
-  const lineupContent = "Check out our amazing lineup!";
-  res.render('index', { content: lineupContent });
-});
-
-// Route for Stages page
-app.get('/stages', (req, res) => {
-  // Assuming you have some dynamic content for the Stages page
-  const stagesContent = "Explore our festival stages!";
-  res.render('index', { content: stagesContent });
-});
-
-// Route for FAQ page
-app.get('/faq', (req, res) => {
-  // Assuming you have some dynamic content for the FAQ page
-  const faqContent = "Frequently Asked Questions";
-  res.render('index', { content: faqContent });
-});
-
-// Route for Contact page
-app.get('/contact', (req, res) => {
-  // Assuming you have some dynamic content for the Contact page
-  const contactContent = "Get in touch with us!";
-  res.render('index', { content: contactContent });
-});
-
-// Route for Activity page
-app.get('/activity', (req, res) => {
-  // Assuming you have some dynamic content for the Activity page
-  const activityContent = "Engage in festival activities!";
-  res.render('index', { content: activityContent });
-});
+// API route for the interactive feature (guess the number)
+app.get('/api/guessNumber', (req, res) => {
+    const userGuess = parseInt(req.query.guess, 10);
+    const randomNumber = Math.floor(Math.random() * 10) + 1;
+  
+    if (isNaN(userGuess) || userGuess < 1 || userGuess > 10) {
+      res.json({ message: 'Please enter a valid number between 1 and 10.' });
+    } else if (userGuess === randomNumber) {
+      res.json({ message: 'Congratulations! You guessed the correct number.' });
+    } else {
+      res.json({ message: `Sorry, the correct number was ${randomNumber}. Try again!` });
+    }
+  });
+  
+  
 
 // API routes for AJAX
 app.get('/api/lineup', (req, res) => {
@@ -88,7 +90,7 @@ app.post('/contact', express.urlencoded({ extended: true }), (req, res) => {
   });
 });
 
-console.log('Before database initialization');
+//console.log('Before database initialization');
 // Existing code...
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('database.db');
@@ -123,7 +125,7 @@ db.run("INSERT INTO lineup (artist) VALUES ('Artist 2')");
 db.run("INSERT INTO stages (name) VALUES ('Main Stage')");
 db.run("INSERT INTO stages (name) VALUES ('Acoustic Stage')");
 
-console.log('After database initialization');
+//console.log('After database initialization');
 
 // Start the server
 app.listen(port, () => {

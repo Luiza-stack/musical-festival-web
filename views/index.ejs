@@ -7,24 +7,68 @@
   <title>Music Festival</title>
 </head>
 <body>
-  <header>
-    <h1>Music Festival</h1>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/lineup">Lineup</a></li>
-        <li><a href="/stages">Stages</a></li>
-        <li><a href="/faq">FAQ</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/activity">Activity</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header style="display: flex; align-items: center; background-color: black;">
+        <div>
+          <img src="/images/logo.jpg" alt="Music Festival Logo" width="100" height="100">
+        </div>
+        <h1 style="margin-left: 10px; color: red;"><i>Music Festival</i></h1>
+        <nav style="margin-top: 15px; margin-left: auto;">
+          <ul>
+            <li><a href="/"><i>Home</i></a></li>
+            <li><a href="/lineup"><i>Lineup</i></a></li>
+            <li><a href="/stages"><i>Stages</i></a></li>
+            <li><a href="/faq"><i>FAQ</i></a></li>
+            <li><a href="/contact"><i>Contact</i></a></li>
+            <li><a href="/activity"><i>Activity</i></a></li>
+          </ul>
+        </nav>
+      </header>
+      
 
-  <main>
-    <!-- Content of each page will go here -->
-    <%= content %>
+<!-- index.ejs -->
+ <h2 style="text-align: center;">Welcome to the Music Festival</h2>
+ <p class="moving-text">Experience the magic of live music and unforgettable performances!</p>
+<br>
+<main>
+    <div class="hero-section">
+        <img src="/images/banner.png" alt="Music Festival" width="800px" height="300px">
+    </div>
+    
+    
+  
+    <section class="feature-section">
+      <div class="feature">
+        <img src="https://via.placeholder.com/600x400" alt="Lineup">
+        <h2>Check out our amazing lineup!</h2>
+        <p>Discover talented artists and bands ready to rock the stage.</p>
+        <a href="/lineup">Explore Lineup</a>
+      </div>
+  
+      <div class="feature">
+        <img src="https://via.placeholder.com/600x400" alt="Stages">
+        <h2>Explore our festival stages!</h2>
+        <p>Immerse yourself in unique performances at various stages.</p>
+        <a href="/stages">Discover Stages</a>
+      </div>
+    </section>
+  
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq">
+        <h3>When is the event?</h3>
+        <p>The event is scheduled to take place on the 20th of January.</p>
+      </div>
+      <div class="faq">
+        <h3>Can I buy tickets on this website?</h3>
+        <p>No, this website is for promotional purposes only. Please use the provided links to purchase tickets through the official ticketing platform.</p>
+      </div>
+      <div class="faq">
+        <h3>How can I get more information about the lineup?</h3>
+        <p>You can find information about the lineup on the Lineup page.</p>
+      </div>
+    </section>
   </main>
+    
 
   <footer>
     <p>&copy; 2023 Music Festival</p>

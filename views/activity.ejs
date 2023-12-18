@@ -1,15 +1,21 @@
+<!-- activity.ejs -->
 <h2>Activity</h2>
 <button id="interactiveBtn">Click Me!</button>
 <div id="interactiveResult"></div>
 
 <script>
-  document.getElementById('interactiveBtn').addEventListener('click', function() {
-    // Use AJAX for an interactive feature
-    fetch('/api/interactiveFeature')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('interactiveResult').innerHTML = data;
-      })
-      .catch(error => console.error('Error fetching interactive feature data:', error));
-  });
+// activity.js
+document.getElementById('interactiveBtn').addEventListener('click', function() {
+  const userGuess = prompt('Guess a number between 1 and 10:');
+
+  // Use AJAX for an interactive feature
+  fetch(`/api/guessNumber?guess=${userGuess}`)
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('interactiveResult').innerHTML = data.message;
+    })
+    .catch(error => console.error('Error fetching interactive feature data:', error));
+});
+
+
 </script>
